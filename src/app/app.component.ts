@@ -10,6 +10,12 @@ export class AppComponent {
   title = 'ProcademyExercise';
   countryName='india';
   firstName!:string;
+  gender=[
+    {id:'1',value:'Male'},
+    {id:'2',value:'Female'},
+    {id:'3',value:'other'}
+  ]
+  defaultGender='Male'
   @ViewChild('myForm') form!:NgForm
   onSubmit(){
     console.log(this.form)
