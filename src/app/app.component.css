@@ -37,3 +37,6 @@ input[type=text],[type=email], select {
   small{
     color: red;
   }
+  input.ng-invalid.ng-touched{
+    border: red solid 1px;
+  }

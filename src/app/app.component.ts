@@ -8,6 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   title = 'ProcademyExercise';
+  countryName='india';
+  firstName!:string;
   @ViewChild('myForm') form!:NgForm
   onSubmit(){
     console.log(this.form)

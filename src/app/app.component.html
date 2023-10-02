@@ -4,15 +4,20 @@
 
       <div>
         <label for="fname">First Name</label>
-        <input type="text" id="fname" placeholder="Your name.." name="fname" ngModel>
+        <input type="text" id="fname" placeholder="Your name.."
+         name="fname" [(ngModel)]="firstName" required #fname='ngModel'>
+         <span *ngIf="firstName">you Entered : {{fname.value}}</span>
+         <small *ngIf="fname.invalid && fname.touched" >First Name is a required Field</small><br>
         <label for="lname">Last Name</label>
-        <input type="text" id="lname" placeholder="Your last name.." name="lname" ngModel>
+        <input type="text" id="lname" placeholder="Your last name.." 
+        name="lname" ngModel required>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your last email.." name="email" ngModel>
+        <input type="email" id="email" name="email" placeholder="Your last email.." 
+        name="email" ngModel required email>
       </div>
       
       <label for="country">Country</label>
-      <select id="country" name="country" name="country" ngModel>
+      <select id="country" name="country" name="country"  [(ngModel)]="countryName" >
         <option value="australia">Australia</option>
         <option value="canada">Canada</option>
         <option value="usa">USA</option>
@@ -33,7 +38,7 @@
           <label><input type="checkbox" value="music" name="music" ngModel> Music</label>
       </div>
     
-      <input type="submit" value="Submit" id="btn">
+      <input type="submit" value="Submit" id="btn" [disabled]="!myForm.valid">
     </form>
 </div>
 
