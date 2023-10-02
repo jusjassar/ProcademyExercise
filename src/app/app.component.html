@@ -1,20 +1,23 @@
 <div class="form">
   <h2 id="registration">Registration Form</h2>
   <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-
-      <div>
+        <div ngModelGroup="personalDetails" #personalDetails="ngModelGroup">
         <label for="fname">First Name</label>
         <input type="text" id="fname" placeholder="Your name.."
          name="fname" [(ngModel)]="firstName" required #fname='ngModel'>
-         <span *ngIf="firstName">you Entered : {{fname.value}}</span>
-         <small *ngIf="fname.invalid && fname.touched" >First Name is a required Field</small><br>
+         <!-- <span *ngIf="firstName">you Entered : {{fname.value}}</span>
+         <small *ngIf="fname.invalid && fname.touched" >First Name is a required Field</small><br> -->
         <label for="lname">Last Name</label>
         <input type="text" id="lname" placeholder="Your last name.." 
         name="lname" ngModel required>
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Your last email.." 
         name="email" ngModel required email>
+        <div>
+          <small *ngIf="personalDetails.invalid && personalDetails.touched">All the Fields are Mandatory</small>
+        </div>
       </div>
+      
       
       <label for="country">Country</label>
       <select id="country" name="country" name="country"  [(ngModel)]="countryName" >
