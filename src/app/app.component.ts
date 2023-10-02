@@ -20,4 +20,27 @@ export class AppComponent {
   onSubmit(){
     console.log(this.form)
   }
+  setAllDefault(){
+    this.form.setValue({
+      country:'',
+      gender:'',
+      movies:'',
+      music:'',
+      personalDetails:{
+        email:'balvinderjassar@gmail.com',
+        fname:'Balvinder',
+        lname:'Jassar'
+      },
+      sports:''
+    })
+  }
+  patchDefault(){
+    this.form.form.patchValue({
+      personalDetails:{
+        email:'balvinderjassar@gmail.com',
+        fname:'Balvinder',
+        lname:'Jassar'
+      },
+    })
+  }
 }

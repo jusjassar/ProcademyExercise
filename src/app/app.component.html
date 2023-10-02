@@ -15,7 +15,10 @@
         <small *ngIf="personalDetails.invalid && personalDetails.touched">All the Fields are Mandatory</small>
       </div>
     </div>
-
+<div>
+  <button (click)="setAllDefault()">SetValue</button>
+  <button (click)="patchDefault()">PatchValue</button>
+</div>
 
     <label for="country">Country</label>
     <select id="country" name="country" name="country" [(ngModel)]="countryName">
