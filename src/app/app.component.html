@@ -2,15 +2,17 @@
   <h2 id="registration">Registration Form</h2>
   <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
 
-      <div>
+      <div formGroupName="personalDetails">
         <label for="fname">First Name</label>
-        <input type="text" id="fname" placeholder="Your name.." formControlName="firstname">
+        <input type="text" id="fname" placeholder="Your name.." formControlName="firsname">
       
     
         <label for="lname">Last Name</label>
         <input type="text" id="lname" placeholder="Your last name.." formControlName="lastname">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Your last email.." formControlName="email">
+        <small *ngIf="reactiveForm.get('personalDetails.email')?.invalid && reactiveForm.get('personalDetails.email')?.touched">
+         Above Fields is required</small>
       </div>
       
       <label for="country">Country</label>
